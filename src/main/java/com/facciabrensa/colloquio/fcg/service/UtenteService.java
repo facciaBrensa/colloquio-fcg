@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class UtenteService {
@@ -31,7 +30,7 @@ public class UtenteService {
         return utenteRepository.findAll()
                 .stream()
                 .map(utenteMapper::utenteEntityToUtenteDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public void aggiornaUtente(Long idUtente, UtenteDTO utenteDTO) {

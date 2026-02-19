@@ -29,7 +29,8 @@ public class UtenteController {
     @PutMapping("/{idUtente}")
     public void aggiornaUtente(
             @PathVariable Long idUtente,
-            @RequestBody UtenteDTO utenteDTO) {
+            @RequestBody UtenteDTO utenteDTO
+    ) {
 
         utenteService.aggiornaUtente(idUtente, utenteDTO);
     }
