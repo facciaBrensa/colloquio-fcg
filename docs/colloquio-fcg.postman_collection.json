@@ -1,0 +1,184 @@
+{
+  "info": {
+    "_postman_id": "ad17bc97-b58b-4aff-940a-d6131c5cf9aa",
+    "name": "colloquio-fcg",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "19151503"
+  },
+  "item": [
+    {
+      "name": "Creazione nuovo utente",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"nome\": \"Gianluca\",\n    \"cognome\": \"Buffon\",\n    \"email\": \"gianlucabuffon01@gmail.com\",\n    \"indirizzo\": \"Via Roma 15, Roma\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/utenti",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "utenti"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "[ADMIN] Creazione utente massiva",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "uuid": "93129750-9ae0-463c-9cdc-2b68894d3b57",
+              "src": "postman-cloud:///1f10da2c-6f58-4c00-b96b-8e2f9b6106ef"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/admin/utenti/import",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "admin",
+            "utenti",
+            "import"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "[ADMIN] Ricerca utenti",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"nome\": \"Gianluca\",\n    \"cognome\": \"Buffon\",\n    \"email\": \"gianlucabuffon01@gmail.com\",\n    \"indirizzo\": \"Via Roma 15, Roma\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/admin/utenti",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "admin",
+            "utenti"
+          ],
+          "query": [
+            {
+              "key": "nome",
+              "value": "Gianluca",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "cognome",
+              "value": "Buffon",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Aggiornamento utente esistente",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"nome\": \"Gianlucone\",\n    \"_cognome\": \"Buffon\",\n    \"_email\": \"gianlucabuffon02@gmail.com\",\n    \"_indirizzo\": \"Via Roma 16, Roma\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/utenti/5",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "utenti",
+            "5"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Eliminazione utente",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/utenti/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "utenti",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Recupero utenti",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/utenti",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "utenti"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
