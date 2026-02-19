@@ -25,4 +25,18 @@ public class UtenteController {
 
         return utenteService.recuperoUtenti();
     }
+
+    @PutMapping("/{idUtente}")
+    public void aggiornaUtente(
+            @PathVariable Long idUtente,
+            @RequestBody UtenteDTO utenteDTO) {
+
+        utenteService.aggiornaUtente(idUtente, utenteDTO);
+    }
+
+    @DeleteMapping("/{idUtente}")
+    public void eliminaUtente(@PathVariable Long idUtente) {
+
+        utenteService.eliminaUtente(idUtente);
+    }
 }

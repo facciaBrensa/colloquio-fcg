@@ -2,28 +2,19 @@ package com.facciabrensa.colloquio.fcg.mapper;
 
 import com.facciabrensa.colloquio.fcg.dto.UtenteDTO;
 import com.facciabrensa.colloquio.fcg.entity.UtenteEntity;
-import org.springframework.stereotype.Component;
+import org.mapstruct.BeanMapping;
+import org.mapstruct.Mapper;
+import org.mapstruct.MappingTarget;
+import org.mapstruct.NullValuePropertyMappingStrategy;
 
-@Component
-public class UtenteMapper {
+@Mapper(componentModel = "spring")
+public interface UtenteMapper {
+    UtenteEntity utenteDtoToUtenteEntity(UtenteDTO utenteDTO);
+    UtenteDTO utenteEntityToUtenteDto(UtenteEntity utenteEntity);
 
-    public UtenteEntity mapUtenteDtoToUtenteEntity(UtenteDTO utenteDTO) {
-        return UtenteEntity.builder()
-                .id(utenteDTO.getId())
-                .nome(utenteDTO.getNome())
-                .cognome(utenteDTO.getCognome())
-                .email(utenteDTO.getEmail())
-                .indirizzo(utenteDTO.getIndirizzo())
-                .build();
-    }
-
-    public UtenteDTO mapUtenteEntityToUtenteDto(UtenteEntity utenteEntity) {
-        return UtenteDTO.builder()
-                .id(utenteEntity.getId())
-                .nome(utenteEntity.getNome())
-                .cognome(utenteEntity.getCognome())
-                .email(utenteEntity.getEmail())
-                .indirizzo(utenteEntity.getIndirizzo())
-                .build();
-    }
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    void updateUtenteFromDto(
+            UtenteDTO dto,
+            @MappingTarget UtenteEntity entity
+    );
 }
