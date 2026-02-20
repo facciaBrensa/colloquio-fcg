@@ -31,16 +31,6 @@ class UtenteAdminServiceTest {
     @MockitoBean
     private UtenteCsvParser utenteCsvParser;
 
-    private UtenteEntity creaUtenteEntityPerTest() {
-        return new UtenteEntity(
-                1L,
-                "Mario",
-                "Rossi",
-                "mariorossi@gmail.com",
-                "Via Roma 1 Roma"
-        );
-    }
-
     @Test
     public void creazioneUtenteMassiva() {
         MultipartFile file = new MockMultipartFile(
@@ -89,5 +79,15 @@ class UtenteAdminServiceTest {
         assertEquals("Mario", result.get(0).getNome());
 
         verify(utenteRepository).findByNomeAndCognome("Mario", "Rossi");
+    }
+
+    private UtenteEntity creaUtenteEntityPerTest() {
+        return new UtenteEntity(
+                1L,
+                "Mario",
+                "Rossi",
+                "mariorossi@gmail.com",
+                "Via Roma 1 Roma"
+        );
     }
 }

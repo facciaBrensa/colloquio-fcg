@@ -28,7 +28,14 @@ class UtenteServiceTest {
 
     @Test
     public void creazioneUtente() {
-        UtenteDTO utenteDto = creaUtenteDtoPerTest();
+        UtenteDTO utenteDto = new UtenteDTO(
+                null,
+                "Mario",
+                "Rossi",
+                "mariorossi@gmail.com",
+                "Via Roma 1 Roma"
+        );
+
         UtenteEntity utenteEntity = creaUtenteEntityPerTest();
 
         when(utenteRepository.save(any(UtenteEntity.class))).thenReturn(utenteEntity);
@@ -99,16 +106,6 @@ class UtenteServiceTest {
         when(utenteRepository.existsById(99L)).thenReturn(false);
 
         assertThrows(FcgNotFoundException.class, () -> utenteService.eliminaUtente(99L));
-    }
-
-    private UtenteDTO creaUtenteDtoPerTest() {
-        return new UtenteDTO(
-                null,
-                "Mario",
-                "Rossi",
-                "mariorossi@gmail.com",
-                "Via Roma 1 Roma"
-        );
     }
 
     private UtenteEntity creaUtenteEntityPerTest() {

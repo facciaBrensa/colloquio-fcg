@@ -61,9 +61,9 @@ class UtenteAdminControllerTest {
     public void ricercaUtenti() throws Exception {
         utenteRepository.save(new UtenteEntity(
                 null,
-                "Mario",
-                "Rossi",
-                "mario@gmail.com",
+                "Gianluigi",
+                "Buffon",
+                "gianluigibuffon00@gmail.com",
                 "Via Roma"
         ));
 
@@ -76,8 +76,8 @@ class UtenteAdminControllerTest {
         ));
 
         String responseContent = mockMvc.perform(get("/admin/utenti")
-                        .param("nome", "Mario")
-                        .param("cognome", "Rossi"))
+                        .param("nome", "Gianluigi")
+                        .param("cognome", "Buffon"))
                 .andExpect(status().isOk())
                 .andReturn()
                 .getResponse()
@@ -85,6 +85,6 @@ class UtenteAdminControllerTest {
         UtenteDTO[] utenti = objectMapper.readValue(responseContent, UtenteDTO[].class);
 
         assertEquals(1, utenti.length);
-        assertEquals("Mario", utenti[0].getNome());
+        assertEquals("Gianluigi", utenti[0].getNome());
     }
 }

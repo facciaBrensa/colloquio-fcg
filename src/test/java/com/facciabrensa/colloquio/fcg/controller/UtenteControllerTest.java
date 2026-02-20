@@ -64,7 +64,7 @@ class UtenteControllerTest {
     }
 
     @Test
-    public void aggiornamentoUtenteIntegration() throws Exception {
+    public void aggiornamentoUtente() throws Exception {
         UtenteEntity utente = utenteRepository.save(new UtenteEntity(
                 null,
                 "Mario",
