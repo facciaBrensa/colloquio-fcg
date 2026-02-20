@@ -12,7 +12,7 @@ L'applicazione deve inoltre soddisfare i seguenti requisiti:
 
 ### Informazioni aggiuntive
 Anche se non esplicitamente richiesto, il progetto include inoltre:
-- Documentazione swagger tramite la libreria OpenAPI, accessibile da locale al seguente localhost:8080/swagger-ui/index.html.
+- Documentazione swagger tramite la libreria OpenAPI, accessibile da locale al seguente link: localhost:8080/swagger-ui/index.html.
 - Collection postman contenente degli esempi per le API implementate (/docs/colloquio-fcg.postman_collection.json) ed un esempio di file .csv (generato tramite AI generativa) da utilizzare per l'inserimento massivo (/docs/import.csv).
 - Test JUnit con coverage completa del codice.
   - I test JUnit del layer controller (es. UtenteController Test) includono integration test con l'intero context di Spring + database h2.
